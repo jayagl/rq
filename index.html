@@ -23,38 +23,34 @@
 		        </div>
 		        <div id="navbar" class="navbar-collapse collapse">
 		          <ul class="nav navbar-nav navbar-right">
-		            <li><a href="#" data-nav-section="about"><span>About</span></a></li>
-		            <li><a href="#" data-nav-section="lineup"><span>Lineup</span></a></li>
-		            <li><a href="#" data-nav-section="location"><span>Location</span></a></li>
-		            <li><a href="#" data-nav-section="tickets"><span>Tickets</span></a></li>
-		            <li><a href="#" data-nav-section="faq"><span>FAQ</span></a></li>
+		            <li><a href="#about" id="about-anchor"><span>About</span></a></li>
+		            <li><a href="#lineup" id="lineup-anchor"><span>Lineup</span></a></li>
+		            <li><a href="#location" id="location-anchor"><span>Location</span></a></li>
+		            <li><a href="#tickets" id="tickets-anchor"><span>Tickets</span></a></li>
+		            <li><a href="#faq" id="faq-anchor"><span>FAQ</span></a></li>
 		          </ul>
 		        </div>
 			    </nav>
 		  </div>
 	</header>
 
-	<style type="text/css">
-		.panel {
-			height: 100vh;
-			width: 100vw;
-			background-color: inherit;
-		}
-		.panel.green {
-			margin-bottom: 400px
-		}
-	</style>
-	<section class="panel blue">
-		<b>ONE</b>
+	<section id="home" class="panel blue">
+		<b>HOME</b>
 	</section>
-	<section class="panel turqoise">
-		<b>TWO</b>
+	<section id="about" class="panel turqoise">
+		<b>About</b>
 	</section>
-	<section class="panel green">
-		<b>THREE</b>
+	<section id="lineup" class="panel green">
+		<b>Lineup</b>
 	</section>
-	<section class="panel bordeaux">
-		<b>FOUR</b>
+	<section id="location" class="panel bordeaux">
+		<b>Location</b>
+	</section>
+	<section id="tickets" class="panel bordeaux">
+		<b>Tickets</b>
+	</section>
+	<section id="faq" class="panel bordeaux">
+		<b>FAQ</b>
 	</section>
 
 
@@ -70,7 +66,7 @@
 
 	<script src="lib/jquery/dist/jquery.min.js"></script>
 	<script src="lib/scrollmagic/scrollmagic/minified/ScrollMagic.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
+	<script src="lib/scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js"></script>
 	<script src="lib/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
 	<script src="js/main.js"></script>
 

@@ -20,3 +20,11 @@ $body-bg:               #000;
 @import "../lib/bootstrap-sass/assets/stylesheets/bootstrap";
 
 //Styles
+.panel {
+  height: 100vh;
+  width: 100vw;
+  background-color: inherit;
+}
+.panel.green {
+  margin-bottom: 400px
+}
