@@ -40,7 +40,7 @@ $(function () { // wait for document ready
   scenes.menuLogoHelper = new ScrollMagic.Scene({
     triggerElement: '.home',
     duration: $('.home-container').height()-50
-  }).setClassToggle('.nav-logo', 'hidden')
+  }).setClassToggle('.nav-logo', 'hide-logo')
   .addTo(controller);
 
   // Change behaviour of controller
@@ -79,12 +79,16 @@ $(function () { // wait for document ready
   });
 
   //Reload page on resize to deal with issues
-  var timeout;
-  $(window).on('resize', function(){
-    if(timeout) clearTimeout(timeout);
-    timeout = setTimeout(function(){
-      location.reload();
-    },100);
-  });
+  // var timeout;
+  // var width = $(window).width();
+  // $(window).on('resize', function(){
+  //   if($(window).width() != width){
+  //      width = $(this).width();
+  //      if(timeout) clearTimeout(timeout);
+  //      timeout = setTimeout(function(){
+  //        location.reload();
+  //      },100);
+  //   }
+  // });
 
 });
