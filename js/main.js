@@ -2,14 +2,10 @@ $(function () { // wait for document ready
   // init
   var controller = new ScrollMagic.Controller({
     globalSceneOptions: {
-      // triggerHook: 0.045,
-      triggerHook: 'onLeave',
-      duration: $('section').height(),
+      triggerHook: 0,
       reverse:true
     }
   });
-
-  // get all slides
   var slides = $('section');
 
   // create scene for every slide
@@ -22,18 +18,20 @@ $(function () { // wait for document ready
     .setClassToggle(slide.id+'-anchor', 'active')
     .addTo(controller);
 
+
     switch (slide.id) {
       case 'home':
-      scene.setPin(slide);
-        // scene.setPin('.home .content');
-        break;
+        scene.setPin(slide, {pushFollowers: false})
+        .duration($('.home-container').height()/2-60)
+        .setClassToggle('body', 'transparent-header');
+        // scene.duration('100%');
+      break;
+      case 'about':
+        scene.triggerHook(0.4);
+      break;
       default:
-
     }
-    console.log(slide.id);
   }
-
-
   // Change behaviour of controller
   // to animate scroll instead of jump
   controller.scrollTo(function(target) {
@@ -45,7 +43,6 @@ $(function () { // wait for document ready
       ease : Cubic.easeInOut
     });
   });
-
 
   $(document).on('click', 'a[href^="#"]', function(e) {
     var id = $(this).attr('href');
@@ -62,4 +59,19 @@ $(function () { // wait for document ready
       }
     }
   });
+
+  //Reload page on resize to deal with issues
+  var timeout;
+  $(window).on('resize', function(){
+    if(timeout) clearTimeout(timeout);
+    timeout = setTimeout(function(){
+      location.reload();
+    },100);
+  });
+
+  //close menu on click
+  var navMain = $(".navbar-collapse");
+   navMain.on("click", "a", null, function () {
+       navMain.collapse('hide');
+   });
 });

@@ -16,10 +16,7 @@
 
 	</head>
 	<body>
-	<header role="banner">
-
-		</nav>
-
+	<header id="menu" role="banner">
 		<nav class="navbar navbar-inverse">
 			<div class="container-fluid">
 				<div class="navbar-header">
@@ -31,7 +28,7 @@
 					</button>
 				</div>
 				<div id="navbar" class="navbar-collapse collapse">
-					<ul class="nav navbar-nav navbar-right">
+					<ul class="nav navbar-nav">
 						<li><a href="#about" id="about-anchor"><span>About</span></a></li>
 						<li><a href="#lineup" id="lineup-anchor"><span>Lineup</span></a></li>
 						<li><a href="#location" id="location-anchor"><span>Location</span></a></li>
@@ -44,22 +41,26 @@
 	</header>
 
 	<!-- <main class="full-screen" role="main"> -->
-		<section id="home" class="full-screen home">
-			<div class="content">HOME</div>
-		</section>
-		<section id="about" class="full-screen">
+		<div class="home-container">
+			<section id="home" class="full-screen home">
+				<img class="logo-img" src="images/title.png">
+			</section>
+		</div>
+		<section id="about" class="about">
+			<img class="ripple" src="images/ripple_sml.png">
+			<a href="#about"><img class="down-arrow" src="images/down.png"></a>
 			<b>About</b>
 		</section>
-		<section id="lineup" class="full-screen">
+		<section id="lineup" class="">
 			<b>Lineup</b>
 		</section>
-		<section id="location" class="full-screen">
+		<section id="location" class="">
 			<b>Location</b>
 		</section>
-		<section id="tickets" class="full-screen">
+		<section id="tickets" class="">
 			<b>Tickets</b>
 		</section>
-		<section id="faq" class="full-screen">
+		<section id="faq" class="full-screen faq">
 			<b>FAQ</b>
 		</section>
 		<footer id="footer" role="contentinfo">

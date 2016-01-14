@@ -29,7 +29,7 @@ body {
 
 .full-screen {
   height: 100%; /* makes panels the entire window height */
-  background-color:blue;
+  // background-color:blue;
 }
 
 header {
@@ -40,11 +40,60 @@ header {
   z-index:10000;
 }
 
+.transparent-header{
+  header {
+    &,*{
+      background: transparent;
+      border: none;
+    }
+  }
+  .about .down-arrow{
+    display:block;
+  }
+}
+
 section {
-  border-bottom:1px solid yellow;
+  position:relative;
+  border-top:1px solid $brand-primary;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   color: #EFEFEF;
+  background: black;
+  padding:20px;
+}
+
+.home{
+  background-image:url('../images/bg.png');
+  background-repeat:no-repeat;
+  background-size: cover;
+  // display:block;
+  // position: relative;
+  .logo-img{
+    position:absolute;
+    left:10%;
+    top:calc(50% - 81px);
+    // margin-top:-50%;
+  }
+
+
+}
+.home-container{
+  height:100%;
+  z-index:1;
+}
+.about{
+  z-index:20;
+  .down-arrow{
+    position:absolute;
+    top:-50px;
+    left:calc(50% - 39px);
+    display: none;
+  }
+  .ripple{
+    position:absolute;
+    left:calc(10% - 10px);
+    top:0;
+  }
 }
