@@ -18,7 +18,7 @@
 	<body>
 	<header id="menu" role="banner">
 		<nav class="navbar navbar-inverse">
-			<div class="container-fluid">
+			<div class="container">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
 						<span class="sr-only">Toggle navigation</span>
@@ -36,12 +36,17 @@
 						<li><a href="#tickets" id="tickets-anchor"><span>Tickets</span></a></li>
 						<li><a href="#faq" id="faq-anchor"><span>FAQ</span></a></li>
 					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="http://www.instagram.com"><span class="nav-icon"><i class="fa fa-instagram"></i></span></a></li>
+						<li><a href="http://www.facebook.com"><span class="nav-icon"><i class="fa fa-facebook"></i></span></a></li>
+						<li><a href="http://www.vimeo.com"><span class="nav-icon"><i class="fa fa-vimeo"></i></span></a></li>
+					</ul>
 				</div>
 			</div>
 		</nav>
 	</header>
 
-	<!-- <main class="full-screen" role="main"> -->
+	<main class="container-fluid full-screen" role="main">
 		<div class="home-container">
 			<section id="home" class="full-screen home">
 				<img class="logo-img" src="images/title.png">
@@ -50,30 +55,47 @@
 		<section id="about" class="about">
 			<img class="ripple" src="images/ripple_sml.png">
 			<a href="#about"><img class="down-arrow" src="images/down.png"></a>
-			<b>About</b>
+			<div class="container">
+				<b>About</b>
+			</div>
 		</section>
 		<section id="lineup" class="">
-			<b>Lineup</b>
+			<div class="container">
+				<b>Lineup</b>
+			</div>
 		</section>
 		<section id="location" class="">
-			<b>Location</b>
+			<div class="container">
+				<b>Location</b>
+			</div>
 		</section>
 		<section id="tickets" class="">
-			<b>Tickets</b>
+			<div class="container">
+				<b>Tickets</b>
+			</div>
 		</section>
 		<section id="faq" class="full-screen faq">
-			<b>FAQ</b>
+			<div class="container">
+				<b>FAQ</b>
+			</div>
 		</section>
 		<footer id="footer" role="contentinfo">
 			<div class="container">
-				<div class="row row-bottom-padded-sm">
-					<div class="col-md-12">
-						<p class="copyright text-center">Rose Quartz Festival &copy; 2016.</p>
+				<div class="row">
+					<div class="col-md-4">
+						<p class="copyright">&copy; Rose Quartz Festival 2016.</p>
+					</div>
+					<div class="col-md-4">
+						<div class="social-media">
+							<a href="http://www.instagram.com"><i class="fa fa-instagram"></i></span></a>
+							<a href="http://www.facebook.com"><i class="fa fa-facebook"></i></span></a>
+							<a href="http://www.vimeo.com"><i class="fa fa-vimeo"></i></span></a>
+						</div>
 					</div>
 				</div>
 			</div>
 		</footer>
-	<!-- </main> -->
+	</main>
 
 
 	<script src="lib/jquery/dist/jquery.min.js"></script>

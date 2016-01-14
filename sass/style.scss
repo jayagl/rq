@@ -1,5 +1,5 @@
 $icon-font-path: "../lib/bootstrap-sass/assets/fonts/bootstrap/";
-
+$fa-font-path:   "../lib/font-awesome/fonts/";
 //Variables
 
 $gray-base:              #FFF !default;
@@ -11,7 +11,7 @@ $gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
 
 $brand-primary:        #EF8B95;
 $brand-success:         #FA70BD;
-$brand-info:            #F7FFC7;
+$brand-info:            #EE8B96;
 $brand-warning:         #f0ad4e;
 $brand-danger:          #d9534f;
 $body-bg:               #000;
@@ -20,6 +20,7 @@ $navbar-inverse-bg: black;
 
 @import "../lib/bootstrap-sass/assets/stylesheets/bootstrap-sprockets";
 @import "../lib/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "../lib/font-awesome/scss/font-awesome";
 @import "./bootstrap-custom.scss";
 //Styles
 
@@ -40,13 +41,17 @@ header {
   top: 0px;
   z-index:10000;
   .navbar.navbar-inverse{
-    border-bottom:1px solid #6D3F44;
+    border-bottom:2px solid #6D3F44;
+    font-size:15px;
+    font-weight:500;
   }
-  .nav-logo{
-    position:absolute;
-    height:72px;
-    top:0;
-    cursor: pointer;
+  .navbar-brand{
+    width:130px;
+    .nav-logo{
+      position:absolute;
+      height:73px;
+      top:0;
+    }
   }
 }
 
@@ -59,7 +64,7 @@ header {
       }
     }
     .navbar-brand{
-      display: none;
+      visibility: hidden;
     }
   }
 }
@@ -110,3 +115,38 @@ section {
   visibility: hidden;
   top:0;
 }
+
+footer{
+  background-color: $brand-info;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // text-align: center;
+  padding:40px;
+  height: 100px;
+  color:white;
+  .copyright{
+    font-weight: bold;
+    float:left;
+  }
+  .social-media{
+    float:right;
+    a{
+      margin-right:18px;
+      color:white;
+    }
+  }
+}
+
+// .nav-icon{
+//   border-radius:50%;
+//   background-color: white;
+//   i{
+//     width:30px;
+//     height:30px;
+//     &:before{
+//       opacity:0;
+//       position:absolute;
+//     }
+//   }
+// }
