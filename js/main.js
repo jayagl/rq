@@ -2,38 +2,41 @@ $(function () { // wait for document ready
   // init
   var controller = new ScrollMagic.Controller({
     globalSceneOptions: {
+      // triggerHook: 0.045,
       triggerHook: 'onLeave',
       duration: $('section').height(),
-      // triggerHook: 0.025,
-      reverse: true
+      reverse:true
     }
   });
 
   // get all slides
-  var slides = $("section.panel");
+  var slides = $('section');
 
   // create scene for every slide
   for (var i=0; i<slides.length; i++) {
     var slide = slides[i];
-    new ScrollMagic.Scene({
+    var scene = new ScrollMagic.Scene({
       triggerElement: slide
     })
-    .setPin(slide)
     .addIndicators(slide.id) // add indicators (requires plugin)
     .setClassToggle(slide.id+'-anchor', 'active')
     .addTo(controller);
-  }
 
-  var scene = new ScrollMagic.Scene({triggerElement: "header"})
-								.setPin("header")
-								.addIndicators({name: "header"}) // add indicators (requires plugin)
-								.addTo(controller);
+    switch (slide.id) {
+      case 'home':
+      scene.setPin(slide);
+        // scene.setPin('.home .content');
+        break;
+      default:
+
+    }
+    console.log(slide.id);
+  }
 
 
   // Change behaviour of controller
   // to animate scroll instead of jump
   controller.scrollTo(function(target) {
-
     TweenMax.to(window, 0.5, {
       scrollTo : {
         y : target,
@@ -41,13 +44,11 @@ $(function () { // wait for document ready
       },
       ease : Cubic.easeInOut
     });
-
   });
 
 
-  //  Bind scroll to anchor links
-  $(document).on("click", "a[href^=#]", function(e) {
-    var id = $(this).attr("href");
+  $(document).on('click', 'a[href^="#"]', function(e) {
+    var id = $(this).attr('href');
 
     if($(id).length > 0) {
       e.preventDefault();
@@ -57,9 +58,8 @@ $(function () { // wait for document ready
 
       // If supported by the browser we can also update the URL
       if (window.history && window.history.pushState) {
-        history.pushState("", document.title, id);
+        history.pushState('', document.title, id);
       }
     }
-
   });
 });

@@ -5,7 +5,8 @@ var gulp = require('gulp'),
     autoprefix = require('gulp-autoprefixer'),
     notify = require("gulp-notify"),
     bower = require('gulp-bower'),
-    livereload = require('gulp-livereload');
+    livereload = require('gulp-livereload'),
+    webserver = require('gulp-webserver');
 
 var config = {
     sassPath: './sass',
@@ -42,4 +43,12 @@ gulp.task('watch', function() {
   gulp.watch(config.jsPath + '/**/*.js').on('change', livereload.changed);
 });
 
-gulp.task('default', ['css', 'watch']);
+gulp.task('webserver', function() {
+  gulp.src('.')
+    .pipe(webserver({
+      open: true,
+      fallback: 'index.html'
+    }));
+});
+
+gulp.task('default', ['css', 'watch', 'webserver']);

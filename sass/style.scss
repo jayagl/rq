@@ -18,13 +18,33 @@ $body-bg:               #000;
 
 @import "../lib/bootstrap-sass/assets/stylesheets/bootstrap-sprockets";
 @import "../lib/bootstrap-sass/assets/stylesheets/bootstrap";
-
+@import "./bootstrap-custom.scss";
 //Styles
-.panel {
-  height: 100vh;
-  width: 100vw;
-  background-color: inherit;
+
+html,
+body {
+  margin: 0;
+  height: 100%;
 }
-.panel.green {
-  margin-bottom: 400px
+
+.full-screen {
+  height: 100%; /* makes panels the entire window height */
+  background-color:blue;
+}
+
+header {
+  position: fixed;
+  right: 0;
+  width:100%;
+  top: 0px;
+  z-index:10000;
+}
+
+section {
+  border-bottom:1px solid yellow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #EFEFEF;
 }
