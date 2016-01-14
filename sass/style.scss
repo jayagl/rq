@@ -9,12 +9,14 @@ $gray:                   lighten($gray-base, 33.5%) !default; // #555
 $gray-light:             lighten($gray-base, 46.7%) !default; // #777
 $gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
 
-$brand-primary:         lighten(#FA70BD, 6.5%); // #337ab7
+$brand-primary:        #EF8B95;
 $brand-success:         #FA70BD;
 $brand-info:            #F7FFC7;
 $brand-warning:         #f0ad4e;
 $brand-danger:          #d9534f;
 $body-bg:               #000;
+
+$navbar-inverse-bg: black;
 
 @import "../lib/bootstrap-sass/assets/stylesheets/bootstrap-sprockets";
 @import "../lib/bootstrap-sass/assets/stylesheets/bootstrap";
@@ -28,8 +30,7 @@ body {
 }
 
 .full-screen {
-  height: 100%; /* makes panels the entire window height */
-  // background-color:blue;
+  height: 100%;
 }
 
 header {
@@ -38,62 +39,74 @@ header {
   width:100%;
   top: 0px;
   z-index:10000;
+  .navbar.navbar-inverse{
+    border-bottom:1px solid #6D3F44;
+  }
+  .nav-logo{
+    position:absolute;
+    height:72px;
+    top:0;
+    cursor: pointer;
+  }
 }
 
 .transparent-header{
   header {
-    &,*{
-      background: transparent;
-      border: none;
+    .navbar.navbar-inverse{
+      &, .navbar-toggle, .navbar-collapse{
+        background: transparent;
+        border: none;
+      }
     }
-  }
-  .about .down-arrow{
-    display:block;
+    .navbar-brand{
+      display: none;
+    }
   }
 }
 
 section {
   position:relative;
-  border-top:1px solid $brand-primary;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: #EFEFEF;
+  // border-top:1px solid $brand-primary;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // text-align: center;
+  // color: #EFEFEF;
   background: black;
-  padding:20px;
+  padding:60px;
 }
 
 .home{
   background-image:url('../images/bg.png');
   background-repeat:no-repeat;
   background-size: cover;
-  // display:block;
-  // position: relative;
   .logo-img{
     position:absolute;
     left:10%;
     top:calc(50% - 81px);
-    // margin-top:-50%;
   }
-
-
 }
 .home-container{
   height:100%;
   z-index:1;
 }
 .about{
+  border-top:1px solid $brand-primary;
   z-index:20;
   .down-arrow{
     position:absolute;
     top:-50px;
     left:calc(50% - 39px);
-    display: none;
   }
   .ripple{
     position:absolute;
     left:calc(10% - 10px);
     top:0;
   }
+}
+
+#menu-helper{
+  position: absolute;
+  visibility: hidden;
+  top:0;
 }

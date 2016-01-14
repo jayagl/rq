@@ -6,6 +6,9 @@ $(function () { // wait for document ready
       reverse:true
     }
   });
+
+  var scenes = {};
+
   var slides = $('section');
 
   // create scene for every slide
@@ -14,24 +17,32 @@ $(function () { // wait for document ready
     var scene = new ScrollMagic.Scene({
       triggerElement: slide
     })
-    .addIndicators(slide.id) // add indicators (requires plugin)
-    .setClassToggle(slide.id+'-anchor', 'active')
+    // .addIndicators(slide.id) // add indicators (requires plugin)
+    .setClassToggle('#'+slide.id+'-anchor', 'active')
     .addTo(controller);
-
-
-    switch (slide.id) {
-      case 'home':
-        scene.setPin(slide, {pushFollowers: false})
-        .duration($('.home-container').height()/2-60)
-        .setClassToggle('body', 'transparent-header');
-        // scene.duration('100%');
-      break;
-      case 'about':
-        scene.triggerHook(0.4);
-      break;
-      default:
-    }
+    scenes[slide.id] = scene;
   }
+
+  scenes.home
+  .setPin('.home', {pushFollowers: false})
+  .duration($('.home-container').height()/2-60);
+
+  scenes.about
+  .setClassToggle('.down-arrow', 'hidden')
+  .triggerHook(0.8);
+
+  scenes.menuHelper = new ScrollMagic.Scene({
+    triggerElement: '.home',
+    duration: $('.home-container').height()-160
+  }).setClassToggle('body', 'transparent-header')
+  .addTo(controller);
+
+  scenes.menuLogoHelper = new ScrollMagic.Scene({
+    triggerElement: '.home',
+    duration: $('.home-container').height()-50
+  }).setClassToggle('.nav-logo', 'hidden')
+  .addTo(controller);
+
   // Change behaviour of controller
   // to animate scroll instead of jump
   controller.scrollTo(function(target) {
@@ -44,6 +55,8 @@ $(function () { // wait for document ready
     });
   });
 
+
+  //scroll to #anchors
   $(document).on('click', 'a[href^="#"]', function(e) {
     var id = $(this).attr('href');
 
@@ -60,6 +73,11 @@ $(function () { // wait for document ready
     }
   });
 
+  //close menu on click anywhere
+  $(document).on('click', function(){
+    $(".navbar-collapse").collapse('hide');
+  });
+
   //Reload page on resize to deal with issues
   var timeout;
   $(window).on('resize', function(){
@@ -69,9 +87,4 @@ $(function () { // wait for document ready
     },100);
   });
 
-  //close menu on click
-  var navMain = $(".navbar-collapse");
-   navMain.on("click", "a", null, function () {
-       navMain.collapse('hide');
-   });
 });
