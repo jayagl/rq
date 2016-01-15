@@ -1,4 +1,9 @@
 $(function () { // wait for document ready
+
+  var LOGO_PIN_OFFSET = 60;
+  var ARROW_TRIGGER_HOOK = 0.8;
+  var TRANSPARENT_HEADER_OFFSET = 190;
+  var SHOW_LOGO_OFFSET = 50;
   // init
   var controller = new ScrollMagic.Controller({
     globalSceneOptions: {
@@ -25,21 +30,21 @@ $(function () { // wait for document ready
 
   scenes.home
   .setPin('.home', {pushFollowers: false})
-  .duration($('.home-container').height()/2-60);
+  .duration($('.home-container').height()/2-LOGO_PIN_OFFSET);
 
   scenes.about
   .setClassToggle('.down-arrow', 'hidden')
-  .triggerHook(0.8);
+  .triggerHook(ARROW_TRIGGER_HOOK);
 
   scenes.menuHelper = new ScrollMagic.Scene({
     triggerElement: '.home',
-    duration: $('.home-container').height()-160
+    duration: $('.home-container').height()-TRANSPARENT_HEADER_OFFSET
   }).setClassToggle('body', 'transparent-header')
   .addTo(controller);
 
   scenes.menuLogoHelper = new ScrollMagic.Scene({
     triggerElement: '.home',
-    duration: $('.home-container').height()-50
+    duration: $('.home-container').height()-SHOW_LOGO_OFFSET
   }).setClassToggle('.nav-logo', 'hide-logo')
   .addTo(controller);
 
