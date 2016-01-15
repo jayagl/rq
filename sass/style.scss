@@ -1,3 +1,7 @@
+//new variables
+$border-color: #6D3F44;
+
+//customised variables
 $icon-font-path: "../lib/bootstrap-sass/assets/fonts/bootstrap/";
 $fa-font-path:   "../lib/font-awesome/fonts/";
 //Variables
@@ -15,7 +19,6 @@ $brand-info:            #EE8B96;
 $brand-warning:         #f0ad4e;
 $brand-danger:          #d9534f;
 $body-bg:               #000;
-
 $navbar-inverse-bg: black;
 $navbar-height:                    70px;
 
@@ -60,7 +63,7 @@ header {
   z-index:10000;
   .navbar.navbar-inverse{
     @include transition('background, border');
-    border-bottom:2px solid #6D3F44;
+    border-bottom:2px solid $border-color;
     border-radius: 0 0 2px;
     font-size:15px;
     font-weight:500;
@@ -69,7 +72,7 @@ header {
       border: none;
     }
     .navbar-collapse.collapse.in{
-      border-top:2px solid #6D3F44;
+      border-top:2px solid $border-color;
       // text-shadow: 1px 1px 2px rgba(150, 150, 150, 0.5);
       // font-size:16px;
     }
@@ -77,7 +80,7 @@ header {
   .navbar-brand{
     width:200px;
     .nav-logo{
-      @include transition('opacity',0.2s);
+      @include transition('opacity',0.1s);
       opacity:1;
       position:absolute;
       height:102px;//73px;
@@ -107,7 +110,80 @@ header {
 section {
   position:relative;
   background: black;
-  padding-top:100px;
+  padding: 100px 20px 100px;
+  font-weight: bold;
+  font-size:15px;
+  .section-title{
+    @extend .col-sm-3;
+    padding-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+  }
+  .section-content{
+    // @extend .col-md-10;
+    @extend .col-sm-9;
+    a.lineup-artist{
+      @extend .col-sm-4;
+      @extend .col-xs-6;
+      color:white;
+      float:left;
+      img{
+        width:100%;
+      }
+      .name{
+        width:100%;
+        font-size:16px;
+        border-top:2px solid $brand-primary;
+        margin:8px 0;
+        padding-top: 8px;
+      }
+    }
+  }
+
+  &#tickets{
+    background-color:$brand-primary;
+    .tickets-banner{
+      .tickets-banner-filler{
+        @extend .col-sm-3;
+      }
+      img{
+        margin-bottom:30px;
+      }
+    }
+    button{
+      padding:20px 50px;
+      background-color: white;
+      color: $brand-primary;
+      border:none;
+      margin: 60px 0 0;
+    }
+  }
+
+  &#location{
+    .location-banner{
+      position:relative;
+      background-image: url('../images/location-banner.png');
+      width:100vw;
+      margin-left:-20px;
+      height:50vh;
+      background-size:cover;
+      margin-bottom:80px;
+      img{
+        position:absolute;
+        left:30%;
+      }
+      img.location-banner-title{
+        bottom: 10px;
+        max-width: 80vw;
+      }
+      img.location-banner-ripple{
+        bottom:-37px;
+      }
+    }
+  }
 }
 
 .home{
@@ -166,6 +242,25 @@ footer{
     }
   }
 }
+
+@media (max-width: $screen-xs-max) {
+  section#location .location-banner{
+    img{
+      left:40px;
+      max-width: 100%;
+    }
+  }
+}
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+
+}
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+
+}
+@media (min-width: $screen-lg-min) {
+
+}
+
 
 // .nav-icon{
 //   border-radius:50%;
