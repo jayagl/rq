@@ -1,7 +1,7 @@
 // Basic Gulp File
 //
 var gulp = require('gulp'),
-    sass = require('gulp-ruby-sass'),
+    sass = require('gulp-sass'),
     autoprefix = require('gulp-autoprefixer'),
     notify = require("gulp-notify"),
     bower = require('gulp-bower'),
@@ -18,20 +18,22 @@ var config = {
 
 
 gulp.task('css', function() {
-    return gulp.src(config.sassPath + '/style.scss')
-        .pipe(sass({
-            style: 'compressed',
-            loadPath: [
-                config.sassPath,
-                config.bowerDir + '/bootstrap-sass-official/assets/stylesheets'
-            ]
-        })
-            .on("error", notify.onError(function (error) {
-                return "Error: " + error.message;
-            })))
-        .pipe(autoprefix('last 2 version'))
-        .pipe(gulp.dest('./css'))
-        .pipe(livereload());
+    // return gulp.src(config.sassPath + '/style.scss')
+    //     .pipe(sass({
+    //         style: 'compressed',
+    //         loadPath: [
+    //             config.sassPath,
+    //             config.bowerDir + '/bootstrap-sass-official/assets/stylesheets'
+    //         ]
+    //     })
+    //         .on("error", notify.onError(function (error) {
+    //             return "Error: " + error.message;
+    //         })))
+    //     .pipe(autoprefix('last 2 version'))
+    gulp.src(config.sassPath + '/style.scss')
+    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+    .pipe(gulp.dest('./css'))
+    .pipe(livereload());
 });
 
 // Rerun the task when a file changes
