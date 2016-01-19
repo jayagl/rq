@@ -200,24 +200,32 @@ section {
       height:50vh;
       background-size:cover;
       margin-bottom:80px;
+      vertical-align: bottom;
+      display: table-cell;
       img{
-        position:absolute;
-        left:27%;
+        @extend .col-sm-offset-3;
+        // position:absolute;
+        // left:27%;
         max-width: 80%;
       }
       img.location-banner-title{
-        bottom: 10px;
+        // bottom: 10px;
         // display:none;
+        margin-bottom:-20px;
       }
       img.location-banner-ripple{
-        bottom:-37px;
+        margin-bottom:-57px;
       }
+
       // .location-banner-text{
       //   font-weight:bold;
       //   font-size:70px;
       //   position:absolute;
       //   bottom: 10px;
       // }
+    }
+    .location-text{
+      padding-top: 80px;
     }
   }
 }
