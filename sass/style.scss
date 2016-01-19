@@ -1,5 +1,16 @@
+@font-face {
+  font-family: 'CircularStd-Bold';
+  src: url('../fonts/CircularStd-Bold.eot');
+  src: url('../fonts/CircularStd-Bold.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/CircularStd-Bold.woff2') format('woff2'),
+       url('../fonts/CircularStd-Bold.woff') format('woff'),
+       url('../fonts/CircularStd-Bold.ttf') format('truetype'),
+       url('../fonts/CircularStd-Bold.svg#CircularStd-Bold') format('svg');
+}
+
+
 //new variables
-$border-color: #6D3F44;
+$border-color: #B1666E;
 
 //customised variables
 $icon-font-path: "../lib/bootstrap-sass/assets/fonts/bootstrap/";
@@ -21,6 +32,10 @@ $brand-danger:          #d9534f;
 $body-bg:               #000;
 $navbar-inverse-bg: black;
 $navbar-height:                    70px;
+$grid-gutter-width:         30px;
+
+
+$font-family-sans-serif:  "CircularStd-Bold", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
 
 @import "../lib/bootstrap-sass/assets/stylesheets/bootstrap-sprockets";
 @import "../lib/bootstrap-sass/assets/stylesheets/bootstrap";
@@ -63,8 +78,9 @@ header {
   z-index:10000;
   .navbar.navbar-inverse{
     @include transition('background, border');
-    border-bottom:2px solid $border-color;
-    border-radius: 0 0 2px;
+    border-bottom-color:$border-color;
+    border-bottom-style: solid;
+    border-width:0 0 2px;
     font-size:15px;
     font-weight:500;
 
@@ -72,21 +88,30 @@ header {
       background: transparent;
       border: none;
     }
-    .navbar-collapse.collapse.in{
-      border-top:2px solid $border-color;
+    .navbar-collapse{
       width:100%;
-
-      // text-shadow: 1px 1px 2px rgba(150, 150, 150, 0.5);
-      // font-size:16px;
+      &.collapse, &.collapsing{
+        border-top-width:2px;
+        border-top-style: solid;
+        border-top-color: $border-color;
+      }
+      a span{
+        padding-bottom:5px;
+      }
+      a:hover span{ //, a.active span{
+        border-bottom: 2px solid white;
+      }
     }
   }
-  .navbar-brand{
-    width:200px;
+  .logo-container{
+    @extend .navbar-brand;
+    @extend .col-sm-3;
+    margin-left: 0px !important;
     .nav-logo{
       opacity:1;
-      position:absolute;
-      height:102px;//73px;
-      top:0;
+      // position:absolute;
+      height:80px;//73px;
+      margin-top:-19px;
       &.hide-logo{
         opacity:0;
       }
@@ -100,7 +125,7 @@ header {
       &, .navbar-collapse{
         @include transition('background, border, height');
         background: transparent;
-        border: none;
+        border-color: transparent;
       }
       .navbar-collapse.collapse.in{
         background-color:rgba(0, 0, 0, 0.5);
@@ -113,34 +138,35 @@ section {
   position:relative;
   background: black;
   padding: 100px 20px 100px;
-  font-weight: bold;
-  font-size:15px;
   .section-title{
     @extend .col-sm-3;
     padding-bottom: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-
+    font-weight: bold;
+    font-size:15px;
+    padding-left: 35px;
   }
   .section-content{
-    // @extend .col-md-10;
     @extend .col-sm-9;
-    a.lineup-artist{
-      @extend .col-sm-4;
-      @extend .col-xs-6;
-      color:white;
-      float:left;
-      img{
-        width:100%;
-      }
-      .name{
-        width:100%;
-        font-size:16px;
-        border-top:2px solid $brand-primary;
-        margin:8px 0;
-        padding-top: 8px;
+    font-size:17px;
+
+    &.lineup-content{
+      padding-left:0;
+      a.lineup-artist{
+        @extend .col-sm-4;
+        @extend .col-xs-6;
+        color:white;
+        float:left;
+        margin-bottom: 24px;
+        img{
+          width:100%;
+        }
+        .name{
+          width:100%;
+          font-size:16px;
+          border-top:2px solid $brand-primary;
+          margin-top:9px;
+          padding-top: 5px;
+        }
       }
     }
   }
@@ -176,15 +202,22 @@ section {
       margin-bottom:80px;
       img{
         position:absolute;
-        left:30%;
+        left:27%;
         max-width: 80%;
       }
       img.location-banner-title{
         bottom: 10px;
+        // display:none;
       }
       img.location-banner-ripple{
         bottom:-37px;
       }
+      // .location-banner-text{
+      //   font-weight:bold;
+      //   font-size:70px;
+      //   position:absolute;
+      //   bottom: 10px;
+      // }
     }
   }
 }
@@ -197,6 +230,7 @@ section {
     position:absolute;
     left:10%;
     top:calc(50% - 81px);
+    height:167px;
   }
 }
 .home-container{
