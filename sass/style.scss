@@ -90,7 +90,7 @@ header {
     }
     .navbar-collapse{
       width:100%;
-      &.collapse, &.collapsing{
+      &.collapse.in, &.collapsing{
         border-top-width:2px;
         border-top-style: solid;
         border-top-color: $border-color;
@@ -98,7 +98,7 @@ header {
       a span{
         padding-bottom:5px;
       }
-      a:hover span{ //, a.active span{
+      a:hover span, a.active span{
         border-bottom: 2px solid white;
       }
     }
@@ -106,7 +106,7 @@ header {
   .logo-container{
     @extend .navbar-brand;
     @extend .col-sm-3;
-    margin-left: 0px !important;
+    // margin-left: 0px !important;
     .nav-logo{
       opacity:1;
       // position:absolute;
@@ -137,13 +137,16 @@ header {
 section {
   position:relative;
   background: black;
-  padding: 100px 20px 100px;
+  padding: 100px 0 100px;
+  .container{
+    padding: 0 25px;
+  }
   .section-title{
     @extend .col-sm-3;
     padding-bottom: 40px;
     font-weight: bold;
     font-size:15px;
-    padding-left: 35px;
+    // padding-left: 35px;
   }
   .section-content{
     @extend .col-sm-9;

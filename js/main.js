@@ -20,7 +20,8 @@ $(function () { // wait for document ready
   for (var i=0; i<slides.length; i++) {
     var slide = slides[i];
     var scene = new ScrollMagic.Scene({
-      triggerElement: slide
+      triggerElement: slide,
+      duration: $(slide).height()
     })
     // .addIndicators(slide.id) // add indicators (requires plugin)
     .setClassToggle('#'+slide.id+'-anchor', 'active')
@@ -28,21 +29,25 @@ $(function () { // wait for document ready
     scenes[slide.id] = scene;
   }
 
-  scenes.home
-  .setPin('.home', {pushFollowers: false})
-  .duration($('.home-container').height()/2-LOGO_PIN_OFFSET);
+  scenes.rippleLocker = new ScrollMagic.Scene({
+    triggerElement: '.home'
+  }).setPin('.home', {pushFollowers: false})
+  .duration($('.home-container').height()/2-LOGO_PIN_OFFSET)
+  .addTo(controller);
 
-  scenes.about
-  .setClassToggle('.down-arrow', 'hidden')
-  .triggerHook(ARROW_TRIGGER_HOOK);
+  scenes.arrowTgl = new ScrollMagic.Scene({
+    triggerElement: '.about',
+    // triggerHook: ARROW_TRIGGER_HOOK
+  }).setClassToggle('.down-arrow', 'hidden')
+  .addTo(controller).triggerHook(ARROW_TRIGGER_HOOK);
 
-  scenes.menuHelper = new ScrollMagic.Scene({
+  scenes.transparentMenuTgl = new ScrollMagic.Scene({
     triggerElement: '.home',
     duration: $('.home-container').height()-TRANSPARENT_HEADER_OFFSET
   }).setClassToggle('body', 'transparent-header')
   .addTo(controller);
 
-  scenes.menuLogoHelper = new ScrollMagic.Scene({
+  scenes.menuLogoTgl = new ScrollMagic.Scene({
     triggerElement: '.home',
     duration: $('.home-container').height()-SHOW_LOGO_OFFSET
   }).setClassToggle('.nav-logo', 'hide-logo')
@@ -71,10 +76,10 @@ $(function () { // wait for document ready
       // trigger scroll
       controller.scrollTo(id);
 
-      // // If supported by the browser we can also update the URL
-      // if (window.history && window.history.pushState) {
-      //   history.pushState('', document.title, id);
-      // }
+      // If supported by the browser we can also update the URL
+      if (window.history && window.history.pushState) {
+        history.pushState('', document.title, id);
+      }
     }
   });
 
