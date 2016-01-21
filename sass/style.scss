@@ -47,6 +47,7 @@ html,
 body {
   margin: 0;
   height: 100%;
+  background-color:black;
 }
 
 @mixin transition($property, $duration:0.5s, $func:ease){
@@ -136,7 +137,7 @@ header {
 
 section {
   position:relative;
-  background: black;
+  // background: black;
   padding: 100px 0 100px;
   .container{
     padding: 0 25px;
@@ -150,7 +151,7 @@ section {
   }
   .section-content{
     @extend .col-sm-9;
-    font-size:17px;
+    font-size:18px;
 
     &.lineup-content{
       padding-left:0;
@@ -165,7 +166,6 @@ section {
         }
         .name{
           width:100%;
-          font-size:16px;
           border-top:2px solid $brand-primary;
           margin-top:9px;
           padding-top: 5px;
@@ -173,7 +173,6 @@ section {
       }
     }
   }
-
   &#tickets{
     background-color:$brand-primary;
     .tickets-banner{
@@ -195,42 +194,48 @@ section {
   }
 
   &#location{
-    .location-banner{
-      position:relative;
-      background-image: url('../images/location-banner.png');
-      width:100vw;
-      margin-left:-20px;
-      height:50vh;
-      background-size:cover;
-      margin-bottom:80px;
-      vertical-align: bottom;
-      display: table-cell;
-      img{
-        @extend .col-sm-offset-3;
-        // position:absolute;
-        // left:27%;
-        max-width: 80%;
-      }
-      img.location-banner-title{
-        // bottom: 10px;
-        // display:none;
-        margin-bottom:-20px;
-      }
-      img.location-banner-ripple{
-        margin-bottom:-57px;
-      }
 
-      // .location-banner-text{
-      //   font-weight:bold;
-      //   font-size:70px;
-      //   position:absolute;
-      //   bottom: 10px;
-      // }
-    }
     .location-text{
-      padding-top: 80px;
+      // padding-top: 80px;
+    }
+    .location-img{
+      width:100%;
+      margin:20px 0;
     }
   }
+}
+
+.location-banner{
+  position:relative;
+  background-image: url('../images/location-banner.png');
+  width:100vw;
+  margin-left:-20px;
+  height:50vh;
+  background-size:cover;
+  margin-bottom:80px;
+  vertical-align: bottom;
+  display: table-cell;
+  img{
+    @extend .col-sm-offset-3;
+    // position:absolute;
+    // left:27%;
+    max-width: 80%;
+  }
+  img.location-banner-title{
+    // bottom: 10px;
+    // display:none;
+    margin-bottom:-20px;
+  }
+  img.location-banner-ripple{
+    margin-bottom:-57px;
+  }
+
+  // .location-banner-text{
+  //   font-weight:bold;
+  //   font-size:70px;
+  //   position:absolute;
+  //   bottom: 10px;
+  // }
 }
 
 .home{
@@ -251,6 +256,7 @@ section {
 .about{
   border-top:1px solid $brand-primary;
   z-index:20;
+  background-color:black;
   .down-arrow{
     position:absolute;
     top:-50px;
