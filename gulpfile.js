@@ -13,6 +13,7 @@ var config = {
     bowerDir: './lib',
     imgPath: './images',
     indexPath:'./index.html',
+    htmlPath:'.',
     jsPath:'./js'
 };
 
@@ -41,7 +42,8 @@ gulp.task('watch', function() {
   livereload.listen();
   gulp.watch(config.sassPath + '/**/*.scss', ['css']);
   gulp.watch(config.imgPath + '/**/*').on('change', livereload.changed);
-  gulp.watch(config.indexPath).on('change', livereload.changed);
+  gulp.watch(config.htmlPath + '/**/*.html').on('change', livereload.changed);
+  // gulp.watch(config.indexPath).on('change', livereload.changed);
   gulp.watch(config.jsPath + '/**/*.js').on('change', livereload.changed);
 });
 
