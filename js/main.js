@@ -67,7 +67,7 @@ $(function () { // wait for document ready
 
 
   //scroll to #anchors
-  $(document).on('click', 'a[href^="#"]', function(e) {
+  $(document).on('click', 'a[href^="#"] + a:not(.ignore-scroll)', function(e) {
     var id = $(this).attr('href');
 
     if($(id).length > 0) {

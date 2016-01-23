@@ -26,7 +26,7 @@ $gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
 
 $brand-primary:        #EF8B95;
 $brand-success:         #FA70BD;
-$brand-info:            #EE8B96;
+$brand-info:            #EEFF05;
 $brand-warning:         #f0ad4e;
 $brand-danger:          #d9534f;
 $body-bg:               #000;
@@ -69,6 +69,10 @@ body {
 
 .full-screen {
   height: 100%;
+}
+
+.highlight{
+  color: $brand-info;
 }
 
 header {
@@ -151,7 +155,7 @@ section {
   }
   .section-content{
     @extend .col-sm-9;
-    font-size:18px;
+    font-size:17px;
 
     &.lineup-content{
       padding-left:0;
@@ -172,9 +176,26 @@ section {
         }
       }
     }
+
+    .sub-section{
+      .sub-section-title{
+        font-size:20px;
+        margin:20px 0 10px;
+        border-bottom: 1px solid white;
+        // text-decoration: underline;
+      }
+      .sub-section-content{
+        padding:0 8px 10px;
+      }
+    }
   }
+
+
   &#tickets{
     background-color:$brand-primary;
+    a{
+      color:$brand-info;
+    }
     .tickets-banner{
       .tickets-banner-filler{
         @extend .col-sm-3;
@@ -191,10 +212,23 @@ section {
       border:none;
       margin: 60px 0 0;
     }
+
+    .room-info{
+      .well-container{
+        margin-top:20px;
+        .well{
+          background-color:black;
+          color:$brand-primary;
+          table{
+            font-size:15px;
+            border-bottom: 1px solid white;
+          }
+        }
+      }
+    }
   }
 
   &#location{
-
     .location-text{
       // padding-top: 80px;
     }
@@ -297,23 +331,7 @@ footer{
   }
 }
 
-@media (max-width: $screen-xs-max) {
-  section#location .location-banner{
-    img{
-      left:40px;
-      max-width: 80%;
-    }
-  }
-}
-@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
 
-}
-@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
-
-}
-@media (min-width: $screen-lg-min) {
-
-}
 
 
 // .nav-icon{
@@ -328,3 +346,45 @@ footer{
 //     }
 //   }
 // }
+
+
+//MEDIA QUERY SPECIFIC STUFF
+@media (max-width: $screen-xs-max) {
+  section#location .location-banner{
+    img{
+      left:40px;
+      max-width: 80%;
+    }
+  }
+
+  section#tickets{
+    .room-info{
+      .table-responsive{
+        table{
+          min-width:700px;
+          td{
+            width:auto;
+            display:table-cell;
+            white-space: normal; /* css-3 */
+            white-space: -moz-normal; /* Mozilla, since 1999 */
+            white-space: -normal; /* Opera 4-6 */
+            white-space: -o-normal; /* Opera 7 */
+            word-wrap: break-word; /* Internet Explorer 5.5+ */
+            ul{
+              padding-left: 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+
+}
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+
+}
+@media (min-width: $screen-lg-min) {
+
+}
