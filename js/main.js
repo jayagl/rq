@@ -67,7 +67,7 @@ $(function () { // wait for document ready
 
 
   //scroll to #anchors
-  $(':not(.ignore-scroll), a[href^="#"]').on('click', function(e) {
+  $(':not(a.ignore-scroll), a[href^="#"]').on('click', function(e) {
     var id = $(this).attr('href');
 
     if($(id).length > 0) {
@@ -81,6 +81,10 @@ $(function () { // wait for document ready
         history.pushState('', document.title, id);
       }
     }
+  });
+
+  $('a.ignore-scroll').on('click', function(e){
+    e.preventDefault();
   });
 
   //close menu on click anywhere
