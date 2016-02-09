@@ -11,6 +11,7 @@
 
 //new variables
 $border-color: #B1666E;
+$inactive-color: #FFCFD4;
 
 //customised variables
 $icon-font-path: "../lib/bootstrap-sass/assets/fonts/bootstrap/";
@@ -91,7 +92,7 @@ header {
     border-bottom-style: solid;
     border-width:0 0 2px;
     font-size:15px;
-    font-weight:500;
+    font-weight:bold;
 
     .navbar-toggle{
       background: transparent;
@@ -187,6 +188,7 @@ section {
         margin:40px 0 10px;
         border-bottom: 1px solid white;
         padding:2px;
+        font-weight:bold;
         // text-decoration: underline;
       }
       .sub-section-content{
@@ -463,6 +465,24 @@ footer{
 // }
 
 
+ul.dashed {
+  list-style-type: none;
+}
+ul.dashed > li {
+}
+ul.dashed > li:before {
+  margin-right:10px;
+  content: "-";
+}
+
+
+.inactive{
+  color:$inactive-color;
+}
+
+.strikethrough{
+  text-decoration: line-through;;
+}
 
 //MEDIA QUERY SPECIFIC STUFF
 @media (max-width: $screen-xs-max) {
