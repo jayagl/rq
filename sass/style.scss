@@ -165,14 +165,11 @@ section {
     &.lineup-content{
       padding-left:0;
       .lineup-sub-title{
-        color:$brand-primary;
-        width:100%;
-        border-bottom:1px solid white;
-        margin-bottom:20px;
+        width:calc(100%-30px);
+        border-bottom:2px solid $brand-primary;
         padding-bottom: 10px;
-        text-align: center;
-        font-size:20px;
         clear:both;
+        margin: 0 15px 20px;
         &:not(:first-child){
           padding-top:40px;
         }
@@ -211,8 +208,15 @@ section {
         padding:8px 12px;
       }
     }
+
+    .sponsors{
+      width: 100%;
+    }
   }
 
+  &#sponsors{
+    padding:0 0 50px;
+  }
 
   &#tickets{
     background-color:$brand-primary;
