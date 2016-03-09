@@ -209,13 +209,28 @@ section {
       }
     }
 
-    .sponsors{
-      width: 100%;
-    }
   }
 
   &#sponsors{
     padding:0 0 50px;
+
+    .section-content{
+      // display: flex;
+      // justify-content: center;
+      // align-items: center;
+      // text-align: center;
+      a{
+        text-decoration: none;
+      }
+      img{
+        width:100px;
+        margin-top:20px;
+        &.id{
+          width:60px;
+          margin: 20px 20px 0;
+        }
+      }
+    }
   }
 
   &#tickets{
